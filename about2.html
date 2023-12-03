@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <style>
+    body {
+      background: black;
+      color: green;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #profile-container {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    #profile-picture {
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 20px;
+    }
+
+    #profile-picture img {
+      width: 100px; 
+      height: 100px; 
+      object-fit: cover;
+    }
+
+    .profile-details {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .profile-details li {
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+
+    .typing-animation::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="profile-container">
+    <div id="profile-picture">
+      <img src="WhatsApp Image 2023-12-03 at 14.34_edited.jpg" alt="Profile Picture">
+    </div>
+    <ul class="profile-details">
+      <li><strong>Name:</strong> <span id="Name" class="typing-animation"></span></li>
+      <li><strong>Age:</strong> <span id="Age" class="typing-animation"></span></li>
+      <li><strong>Standard:</strong> <span id="Standard" class="typing-animation"></span></li>
+      <li><strong>Ambition:</strong> <span id="Ambition" class="typing-animation"></span></li>
+      <li><strong>Location:</strong> <span id="Location" class="typing-animation"></span></li>
+    </ul>
+  </div>
+
+  <script>
+    
+    const profileData = {
+      Name: "Alan R",
+      Age: "13",
+      Location: "Alapuzha,Kerala,India",
+      Standard: "8th",
+      Ambition: "Web Developer,Application Developer"
+    };
+
+    
+    function typeText(element, text, speed = 180) {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    
+    typeText(document.getElementById('Name'), profileData.Name);
+    typeText(document.getElementById('Age'), profileData.Age);
+    typeText(document.getElementById('Standard'), profileData.Standard);
+    typeText(document.getElementById('Ambition'), profileData.Ambition);
+    typeText(document.getElementById('Location'), profileData.Location);
+  </script>
+</body>
+</html>
